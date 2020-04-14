@@ -11,7 +11,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 //sh
-                bat "docker build --tag='dejan89/selenium-docker' ."
+                bat "docker build -t=dejan89/selenium-docker ."
             }
         }
         stage('Push Image') {
