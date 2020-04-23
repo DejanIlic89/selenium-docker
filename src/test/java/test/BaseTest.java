@@ -12,7 +12,8 @@ import java.net.URL;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    public WebDriver driver;
+    public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<>();
 
     @BeforeTest
     public void setupDriver(ITestContext ctx) throws MalformedURLException {
@@ -38,6 +39,11 @@ public class BaseTest {
         String completeUrl = "http://" + host + ":4444/wd/hub";
         dc.setCapability("name", testName);
         this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+        tdriver.set(driver);
+    }
+
+    public static synchronized WebDriver getDriver() {
+        return tdriver.get();
     }
 
     @AfterTest

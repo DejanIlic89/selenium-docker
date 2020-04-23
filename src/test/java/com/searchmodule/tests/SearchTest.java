@@ -1,11 +1,14 @@
 package com.searchmodule.tests;
 
+import allure.AllureListener;
 import com.searchmodule.pages.SearchPage;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import test.BaseTest;
 
+@Listeners({AllureListener.class})
 public class SearchTest extends BaseTest {
 
     @Test

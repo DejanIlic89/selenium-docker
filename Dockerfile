@@ -1,5 +1,6 @@
 FROM openjdk:8u191-jre-alpine3.8
 
+# Install curl & jq
 RUN apk add curl jq
 
 # Workspace
@@ -20,6 +21,9 @@ ADD search-module.xml                   search-module.xml
 
 # ADD health check script
 ADD healthcheck.sh                      healthcheck.sh
+
+# Or we can ADD health check script the other way
+# RUN wget https://s3.amazonaws.com/selenium-docker/healthcheck/healthcheck.sh
 
 # BROWSER
 # HUB_HOST
