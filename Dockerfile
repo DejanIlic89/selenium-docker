@@ -23,7 +23,7 @@ ADD search-module.xml                   search-module.xml
 # ADD healthcheck.sh                      healthcheck.sh
 
 # Or we can ADD health check script the other way
-RUN curl https://s3.amazonaws.com/selenium-docker/healthcheck/healthcheck.sh
+RUN curl -s https://s3.amazonaws.com/selenium-docker/healthcheck/healthcheck.sh
 
 # BROWSER
 # HUB_HOST
